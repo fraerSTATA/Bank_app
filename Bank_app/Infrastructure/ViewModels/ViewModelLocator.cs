@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Bank_app.Infrastructure.ViewModels
 {
-    public class ViewModelLocator
+    class ViewModelLocator
     {
+        public AutorisationViewModel Autorisation => App.Services.GetRequiredService<AutorisationViewModel>();
     }
 }

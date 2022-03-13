@@ -7,10 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Bank_app.Infrastructure.Services
 {
-    static class ServiceRegistator
+    public static class ServicesRegistator
     {
 
-        public static IServiceCollection AddServices(this ServiceCollection services) => services
+        public static IServiceCollection AddServices(this IServiceCollection services) => services
         ;
     }
 }

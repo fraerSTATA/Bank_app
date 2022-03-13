@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Bank_app.Infrastructure.Services;
+using Bank_app.Infrastructure.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
@@ -21,10 +23,15 @@ namespace Bank_app
         public static IHost Host => _Host ??= Program.CreaHostBuilder(Environment.GetCommandLineArgs()).Build();
       
         public static IServiceProvider Services => Host.Services;
-        internal static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
-        {
+        internal static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
+            .AddServices()
+            .AddViewModels()
+            ;
+            
 
-        }
+        
+          
+       
 
         protected override async void OnStartup(StartupEventArgs e)
         {

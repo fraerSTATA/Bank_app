@@ -8,9 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Bank_app.Infrastructure.ViewModels
 {
-    static class ViewModelRegistator
+   public static class ViewModelRegistator
     {
-        public static IServiceCollection AddViewModels(this ServiceCollection services) => services
+        public static IServiceCollection AddViewModels(this IServiceCollection services) => services
+            .AddSingleton<AutorisationViewModel>()
         ;
     }
 }
