@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Bank_app"
              xmlns:viewModels="clr-namespace:Bank_app.Infrastructure.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <viewModels:ViewModelLocator x:Key="Locator"></viewModels:ViewModelLocator>
