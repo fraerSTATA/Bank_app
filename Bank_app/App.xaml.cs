@@ -9,6 +9,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Bank_app.Data;
 using System.Windows.Navigation;
 
 namespace Bank_app
@@ -24,6 +25,7 @@ namespace Bank_app
       
         public static IServiceProvider Services => Host.Services;
         internal static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
+            .AddDatabase(host.Configuration.GetSection("Database"))
             .AddServices()
             .AddViewModels()
             ;
