@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Bank_app.Data;
 using System.Windows.Navigation;
-
+using Bank_app.DAL.Context;
 namespace Bank_app
 {
     /// <summary>
@@ -38,6 +38,9 @@ namespace Bank_app
         protected override async void OnStartup(StartupEventArgs e)
         {
             var host = Host;
+
+            using(var scope = Services.CreateScope())
+              scope.ServiceProvider.GetRequiredService<DbInitializer>().Initialize().Wait();
             base.OnStartup(e);
             await host.StartAsync();
         }
