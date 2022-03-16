@@ -16,7 +16,7 @@ namespace Bank_app.Interfaces
         string id { get; set; }
     }
 
-    public interface IRepository<T> where T : class, IEntity, new()
+    public interface IRepository<T> where T :class, IEntity, new()
     {
         IQueryable<T> Items { get; }
 
@@ -31,7 +31,7 @@ namespace Bank_app.Interfaces
         Task RemoveAsync(int id,CancellationToken Cancel = default);
     }
 
-    public interface IRepositoryUser<T> where T : class, IUserEntity, new()
+    public interface IRepositoryUser<T> where T : class,IUserEntity, new()
     {
         IQueryable<T> Items { get; }
 

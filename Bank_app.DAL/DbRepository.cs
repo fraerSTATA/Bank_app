@@ -7,6 +7,7 @@ using Bank_app.Interfaces;
 using Bank_app.DAL.Entityes.Base;
 using Bank_app.DAL.Context;
 using Microsoft.EntityFrameworkCore;
+using Bank_app.DAL.Entityes;
 
 namespace Bank_app.DAL
 {
@@ -82,5 +83,42 @@ namespace Bank_app.DAL
                 await db.SaveChangesAsync().ConfigureAwait(false);
         }
     }
+
+    class CreditViewRepository : DbRepository<CreditView>
+    {
+
+        public override IQueryable<CreditView> Items => base.Items.Include(item => item.CreditType);
+        public CreditViewRepository(Bank_appDB db) : base(db)
+        {
+
+        }
+    }
+
+    class CreditRequestRepository : DbRepository<CreditRequest>
+    {
+
+        public override IQueryable<CreditRequest> Items => base.Items
+            .Include(item => item.CreditView)
+            .Include(item => item.User)
+            ;
+        public CreditRequestRepository(Bank_appDB db) : base(db)
+        {
+
+        }
+    }
+
+    class CheckedCreditRequestRepository : DbRepository<CheckedCreditRequest>
+    {
+
+        public override IQueryable<CheckedCreditRequest> Items => base.Items
+            .Include(item => item.CreditRequest)
+            .Include(item => item.Employee)
+            ;
+        public CheckedCreditRequestRepository(Bank_appDB db) : base(db)
+        {
+
+        }
+    }
+
 }
     

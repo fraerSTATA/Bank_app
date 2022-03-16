@@ -48,10 +48,10 @@ namespace Bank_app
 
         private bool CanExecuteCloseApplicationCommandExecute(object p) => true;
         #endregion
-        public AutorisationViewModel(Bank_appDB bank_)
+        public AutorisationViewModel(IRepositoryUser<Employee> users) 
         {
-           // employers = employer;
-            var emp = bank_.Employees.Take(1).FirstOrDefault();
+            // employers = employer;
+            var emp = users.Items.Take(1).ToArray();
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecute, CanExecuteCloseApplicationCommandExecute);
         }
     }

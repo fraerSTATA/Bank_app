@@ -7,6 +7,7 @@ using Bank_app.Interfaces;
 using Bank_app.DAL.Entityes.Base;
 using Bank_app.DAL.Context;
 using Microsoft.EntityFrameworkCore;
+using Bank_app.DAL.Entityes;
 
 namespace Bank_app.DAL
 {
@@ -82,5 +83,17 @@ namespace Bank_app.DAL
                 await db.SaveChangesAsync().ConfigureAwait(false);
         }
     }
+
+    class EmployeeRepository : DbRepositoryUser<Employee>
+    {
+
+        public override IQueryable<Employee> Items => base.Items.Include(item => item.Post);
+        public EmployeeRepository(Bank_appDB db) : base(db)
+        {
+
+        }
+    }
+
+  
 }
 
