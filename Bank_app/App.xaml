@@ -7,7 +7,7 @@
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <viewModels:ViewModelLocator x:Key="Locator"></viewModels:ViewModelLocator>
+            <viewModels:ViewModelLocator x:Key="Locator"/>
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />

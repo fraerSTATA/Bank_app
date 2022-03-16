@@ -11,7 +11,7 @@ namespace Bank_app.Infrastructure.ViewModels
    public static class ViewModelRegistator
     {
         public static IServiceCollection AddViewModels(this IServiceCollection services) => services
-            .AddSingleton<AutorisationViewModel>()
+            .AddScoped<AutorisationViewModel>()
         ;
     }
 }

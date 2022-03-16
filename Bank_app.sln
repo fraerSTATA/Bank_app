@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bank_app", "Bank_app\Bank_app.csproj", "{3B365897-639A-4811-8388-9ED074FC20FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank_app.DAL", "Bank_app.DAL\Bank_app.DAL.csproj", "{252BB961-0ADD-4568-A826-0CC2DF7F4219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bank_app.DAL", "Bank_app.DAL\Bank_app.DAL.csproj", "{252BB961-0ADD-4568-A826-0CC2DF7F4219}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank_app.Interfaces", "BankApp.Interfaces\Bank_app.Interfaces.csproj", "{2A5B9D84-0521-4B5B-95EC-BB668DE8BAF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{252BB961-0ADD-4568-A826-0CC2DF7F4219}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{252BB961-0ADD-4568-A826-0CC2DF7F4219}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{252BB961-0ADD-4568-A826-0CC2DF7F4219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A5B9D84-0521-4B5B-95EC-BB668DE8BAF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A5B9D84-0521-4B5B-95EC-BB668DE8BAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A5B9D84-0521-4B5B-95EC-BB668DE8BAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A5B9D84-0521-4B5B-95EC-BB668DE8BAF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

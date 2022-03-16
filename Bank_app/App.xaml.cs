@@ -21,20 +21,15 @@ namespace Bank_app
     {
         private static IHost _Host;
 
-        public static IHost Host => _Host ??= Program.CreaHostBuilder(Environment.GetCommandLineArgs()).Build();
+        public static IHost Host => _Host ??= Program.CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
       
         public static IServiceProvider Services => Host.Services;
-        internal static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
+        public static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
             .AddDatabase(host.Configuration.GetSection("Database"))
             .AddServices()
             .AddViewModels()
             ;
             
-
-        
-          
-       
-
         protected override async void OnStartup(StartupEventArgs e)
         {
             var host = Host;

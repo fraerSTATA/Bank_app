@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Bank_app.DAL.Context;
 using Microsoft.EntityFrameworkCore;
-
+using Bank_app.DAL;
 
 namespace Bank_app.Data
 {
@@ -19,6 +19,8 @@ namespace Bank_app.Data
             var type = Configuration["Type"];
             opt.UseSqlServer(Configuration.GetConnectionString(type));
         })
+           .AddTransient<DbInitializer>()
+           .AddRepositoriesInDB()
             ;
     }
 }

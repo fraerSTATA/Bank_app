@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Bank_app"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Bank_app.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Height="450" Width="800"
+         DataContext="{Binding Autorisation,Source={StaticResource Locator}}"
+        Title="{Binding Title}"
+    >
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="175,145,0,0" VerticalAlignment="Top" Height="132" Width="416" Cursor="Hand"/>
 
