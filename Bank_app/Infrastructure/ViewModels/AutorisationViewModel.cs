@@ -7,6 +7,7 @@ using Bank_app.Interfaces;
 using System.Linq;
 using Bank_app.DAL.Context;
 using Bank_app.Infrastructure.Services;
+using Bank_app.Windows;
 
 namespace Bank_app
 {
@@ -15,8 +16,8 @@ namespace Bank_app
         private string? userLogin;
         private string? password;
 
-        private string title = "Тут был Саня";
-        private readonly IRepositoryUser<Employee> employers;
+        private string title = "Bruiser Bank";
+
         private readonly IRepositoryUser<Employee> users;
         private readonly Autorisated autorisated;
 
@@ -50,15 +51,45 @@ namespace Bank_app
         }
 
         private bool CanExecuteCloseApplicationCommandExecute(object p) => true;
+
+        public ICommand LoginCommand { get; }
+
+        private void OnLoginCommandExecute(object p)
+        {
+            var emp = autorisated.Autorise(userLogin, password);
+            if (emp.Value != null)
+            {
+               if(emp.Key == "сотрудник")
+                {
+                   Registry a = new Registry();
+                    a.Show();
+                }
+                if (emp.Key == "пользователь")
+                {
+                    MessageBox.Show("Синякуем");
+                }
+            }             
+            else
+            {
+                MessageBox.Show("Пользователь не найден");
+            }
+        }
+
+        private bool CanExecuteLoginCommandExecute(object p){
+          //  if (userLogin != null && password != null && autorisated != null)
+                return true;
+         //   MessageBox.Show("Заполните все поля!");
+        //    return false;
+            }
+
         #endregion
         public AutorisationViewModel(Autorisated autorisated) 
         {
             // employers = employer;         
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecute, CanExecuteCloseApplicationCommandExecute);
-            this.users = users;
-            this.autorisated = autorisated;
-            var emp = autorisated.Autorise("Mike", "12345678");
-            int i = 0;
+            LoginCommand = new LambdaCommand(OnLoginCommandExecute, CanExecuteLoginCommandExecute);           
+            this.autorisated = autorisated;         
+            Password = "sadasdas";
 
         }
     }

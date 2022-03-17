@@ -6,12 +6,36 @@
         xmlns:local="clr-namespace:Bank_app"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Bank_app.MainWindow"
         mc:Ignorable="d"
-        Height="450" Width="800"
+        Height="400" Width="600"
          DataContext="{Binding Autorisation,Source={StaticResource Locator}}"
         Title="{Binding Title}"
     >
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="175,145,0,0" VerticalAlignment="Top" Height="132" Width="416" Cursor="Hand"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="AUTO"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.RowSpan="5" Background="Purple"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="40" FontFamily="Bahnschrift Light Condensed" FontStretch="Medium" HorizontalAlignment="Center" Margin="40 20 20 40">Добро пожаловать в Bruiser Bank</TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Width="AUTO">
+            <TextBlock  FontSize="40" FontFamily="Bahnschrift Light Condensed" Margin="40 10 0 0 ">логин</TextBlock>
+            <TextBox  Text="{Binding UserLogin }"  FontSize="24" Height="35" Width="300" FontFamily="Bahnschrift Light Condensed" Margin="38 0 0 0 " Cursor="IBeam"></TextBox>
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Width="AUTO">
+            <TextBlock  FontSize="40" FontFamily="Bahnschrift Light Condensed" Margin="40 10 0 0 ">пароль</TextBlock>
+            <TextBox Text="{Binding Password}" Height="35" FontSize="24" Width="300" FontFamily="Bahnschrift Light Condensed" Margin="20 0 0 0 " Cursor="IBeam"/>
+        </StackPanel>
+
+        <Button Command="{Binding LoginCommand}"  Grid.Column="1" Grid.Row="3" FontSize="20"  HorizontalAlignment="Left" Margin="303,19,0,0"  VerticalAlignment="Top" Height="50" Width="160"  Cursor="Hand" Content="Войти"/>
+        <Button Grid.Column="1" Grid.Row="3"  FontSize="20" HorizontalAlignment="Left" Margin="115,19,0,0"  VerticalAlignment="Top" Height="50" Width="160"  Cursor="Hand" Content="Регистрация"/>
+        <materialDesign:RatingBar Margin="10 " HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="121" Grid.Row="4" Grid.Column="1"/>
 
     </Grid>
 

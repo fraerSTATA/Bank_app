@@ -12,6 +12,7 @@ namespace Bank_app.Infrastructure.ViewModels
     {
         public static IServiceCollection AddViewModels(this IServiceCollection services) => services
             .AddScoped<AutorisationViewModel>()
-        ;
+            .AddScoped<RegistationViewModel>()
+           ;
     }
 }

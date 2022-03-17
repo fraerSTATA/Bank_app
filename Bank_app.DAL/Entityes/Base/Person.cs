@@ -11,6 +11,5 @@ namespace Bank_app.DAL.Entityes.Base
         public string name { get; set; }
         public string surname { get; set; }
         public int passport { get; set; }
-        public DateTime birthday { get; set; }
     }
 }

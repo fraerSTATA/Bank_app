@@ -25,11 +25,12 @@ namespace Bank_app.Data
 
         public async Task  Initialize()
         {
+         
            /*var a = _db.Posts.Take<Post>(10).ToList();
            
             MessageBox.Show(a[0].descript);*/
             await _db.Database.MigrateAsync().ConfigureAwait(false);
-            if (await _db.Posts.AnyAsync()) return;
+           // if (await _db.Posts.AnyAsync()) return;
         }
     }
 }
