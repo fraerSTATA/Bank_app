@@ -11,10 +11,7 @@ namespace Bank_app.Infrastructure.Services
     public class Registrated
    
     {
-        private readonly IRepositoryUser<User> users;
-       
-
-      
+        private readonly IRepositoryUser<User> users;     
         public Registrated(IRepositoryUser<User> users)
         {
             this.users = users;        
@@ -26,6 +23,6 @@ namespace Bank_app.Infrastructure.Services
                 users.Add(user);
                }
         }
-    }
+    
 }
 

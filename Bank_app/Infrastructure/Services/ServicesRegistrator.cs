@@ -15,6 +15,7 @@ namespace Bank_app.Infrastructure.Services
         public static IServiceCollection AddServices(this IServiceCollection services) => services
             .AddTransient<DbInitializer>()
             .AddTransient<Autorisated>()
+            .AddTransient<Registrated>()
         ;
     }
 }

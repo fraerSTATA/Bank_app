@@ -5,18 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bank_app.Windows"
         mc:Ignorable="d"
-        Title="Registry" Height="450" Width="514"
+        Title="Registry" Height="700" Width="514"
          DataContext="{Binding Registration,Source={StaticResource Locator}}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="40" FontFamily="Bahnschrift Light Condensed" FontStretch="Medium" HorizontalAlignment="Center" Margin="10 20 20 0">Bruiser Bank</TextBlock>
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="DeepPink">
+        <TextBlock Grid.Row="1" Grid.Column="0" FontSize="40" FontFamily="Bahnschrift Light Condensed" FontStretch="Medium" HorizontalAlignment="Center" Margin="0 20 0 0">Регистрация</TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Width="AUTO">
+            <TextBlock Height="60"  FontSize="40" FontFamily="Bahnschrift Light Condensed" Margin="40 10 0 0 ">логин</TextBlock>
+            <TextBox  Text="{Binding Id }"  FontSize="24" Height="35" Width="300" FontFamily="Bahnschrift Light Condensed" Margin="38 0 0 0 " Cursor="IBeam"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Width="AUTO">
+            <TextBlock Height="60"  FontSize="40" FontFamily="Bahnschrift Light Condensed" Margin="40 10 0 0 ">пароль</TextBlock>
+            <TextBox  Text="{Binding Password }"  FontSize="24" Height="35" Width="300" FontFamily="Bahnschrift Light Condensed" Margin="38 0 0 0 " Cursor="IBeam"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Width="AUTO">
+            <TextBlock Height="60"  FontSize="40" FontFamily="Bahnschrift Light Condensed" Margin="40 10 0 0 ">ИНН</TextBlock>
+            <TextBox  Text="{Binding Inn }"  FontSize="24" Height="35" Width="300" FontFamily="Bahnschrift Light Condensed" Margin="38 0 0 0 " Cursor="IBeam"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="0" Width="AUTO">
+            <TextBlock Height="60"  FontSize="40" FontFamily="Bahnschrift Light Condensed" Margin="40 10 0 0 ">Паспорт</TextBlock>
+            <TextBox  Text="{Binding Passport }"  FontSize="24" Height="35" Width="300" FontFamily="Bahnschrift Light Condensed" Margin="38 0 0 0 " Cursor="IBeam"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0" Width="AUTO">
+            <TextBlock Height="60"  FontSize="40" FontFamily="Bahnschrift Light Condensed" Margin="40 10 0 0 ">Имя</TextBlock>
+            <TextBox  Text="{Binding Name }"  FontSize="24" Height="35" Width="300" FontFamily="Bahnschrift Light Condensed" Margin="38 0 0 0 " Cursor="IBeam"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="0" Width="AUTO">
+            <TextBlock Height="60"  FontSize="40" FontFamily="Bahnschrift Light Condensed" Margin="40 10 0 0 ">Фамилия</TextBlock>
+            <TextBox  Text="{Binding Surname }"  FontSize="24" Height="35" Width="300" FontFamily="Bahnschrift Light Condensed" Margin="38 0 0 0 " Cursor="IBeam"></TextBox>
+        </StackPanel>
+
+        <Button Command="{Binding RegCommand}"  Grid.Column="1" Grid.Row="8" FontSize="24"  HorizontalAlignment="Left" Margin="100,19,0,0"  VerticalAlignment="Top" Height="50" Width="300"  Cursor="Hand" Content="Зарегистрироваться"/>
+
     </Grid>
 </Window>
