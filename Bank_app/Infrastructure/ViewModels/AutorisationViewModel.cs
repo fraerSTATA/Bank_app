@@ -6,6 +6,7 @@ using Bank_app.Infrastructure.Commands;
 using Bank_app.Interfaces;
 using System.Linq;
 using Bank_app.DAL.Context;
+using Bank_app.Infrastructure.Services;
 
 namespace Bank_app
 {
@@ -16,6 +17,8 @@ namespace Bank_app
 
         private string title = "Тут был Саня";
         private readonly IRepositoryUser<Employee> employers;
+        private readonly IRepositoryUser<Employee> users;
+        private readonly Autorisated autorisated;
 
         #region Свойства
 
@@ -48,11 +51,15 @@ namespace Bank_app
 
         private bool CanExecuteCloseApplicationCommandExecute(object p) => true;
         #endregion
-        public AutorisationViewModel(IRepositoryUser<Employee> users) 
+        public AutorisationViewModel(Autorisated autorisated) 
         {
-            // employers = employer;
-            var emp = users.Items.Take(1).ToArray();
+            // employers = employer;         
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecute, CanExecuteCloseApplicationCommandExecute);
+            this.users = users;
+            this.autorisated = autorisated;
+            var emp = autorisated.Autorise("Mike", "12345678");
+            int i = 0;
+
         }
     }
 }

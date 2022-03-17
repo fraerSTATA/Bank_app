@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Infrastructure\Service\" />
     <Folder Include="Infrastructure\UserControls\" />
     <Folder Include="Models\" />
   </ItemGroup>
