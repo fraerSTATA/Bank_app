@@ -8,6 +8,7 @@ using System.Linq;
 using Bank_app.DAL.Context;
 using Bank_app.Infrastructure.Services;
 using Bank_app.Windows;
+using Bank_app.DAL.Entityes.Base;
 
 namespace Bank_app
 {
@@ -15,14 +16,14 @@ namespace Bank_app
     {
         private string? userLogin;
         private string? password;
-
+        
         private string title = "Bruiser Bank";
 
         private readonly IRepositoryUser<Employee> users;
         private readonly Autorisated autorisated;
 
         #region Свойства
-
+        public Person per;
         public string Title
         {
             get => this.title;
@@ -43,6 +44,25 @@ namespace Bank_app
         #endregion
 
         #region Команды
+        /// <summary>
+        /// Открытие окна регистрации
+        /// </summary>
+        private ICommand openReigstryCommand;
+
+        public ICommand OpenReigstryCommand => openReigstryCommand ??= new LambdaCommand(OnOpenReigstryCommandExecute, CanExecuteOpenReigstryCommandExecute);
+
+        private void OnOpenReigstryCommandExecute(object p)
+        {
+          
+            Registry a = new();              
+            a.Show();
+        }
+
+        private bool CanExecuteOpenReigstryCommandExecute(object p) => true;
+
+        /// <summary>
+        /// Закрытие главного окна
+        /// </summary>
         public ICommand CloseApplicationCommand { get; }
 
         private void OnCloseApplicationCommandExecute(object p)
@@ -52,7 +72,13 @@ namespace Bank_app
 
         private bool CanExecuteCloseApplicationCommandExecute(object p) => true;
 
-        public ICommand LoginCommand { get; }
+
+        /// <summary>
+        /// Авторизация
+        /// </summary>
+        private ICommand loginCommand;
+
+        public ICommand LoginCommand => loginCommand ??= new LambdaCommand(OnLoginCommandExecute, CanExecuteLoginCommandExecute);
 
         private void OnLoginCommandExecute(object p)
         {
@@ -60,14 +86,14 @@ namespace Bank_app
             if (emp.Value != null)
             {
                if(emp.Key == "сотрудник")
-                {
-                   Registry a = new Registry();
-                    a.Show();
+                {             
+                    MessageBox.Show("сотрудник");                   
                 }
                 if (emp.Key == "пользователь")
-                {
+                {                 
                     MessageBox.Show("Синякуем");
                 }
+                per = emp.Value;
             }             
             else
             {
@@ -76,21 +102,16 @@ namespace Bank_app
         }
 
         private bool CanExecuteLoginCommandExecute(object p){
-          //  if (userLogin != null && password != null && autorisated != null)
+         
                 return true;
-         //   MessageBox.Show("Заполните все поля!");
-        //    return false;
+ 
             }
 
         #endregion
         public AutorisationViewModel(Autorisated autorisated) 
-        {
-            // employers = employer;         
-            CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecute, CanExecuteCloseApplicationCommandExecute);
-            LoginCommand = new LambdaCommand(OnLoginCommandExecute, CanExecuteLoginCommandExecute);           
-            this.autorisated = autorisated;         
-            Password = "sadasdas";
-
+        {                                
+            this.autorisated = autorisated;
+           
         }
     }
 }

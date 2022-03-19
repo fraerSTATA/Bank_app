@@ -8,12 +8,14 @@ using System.Linq;
 using Bank_app.DAL.Context;
 using Bank_app.Infrastructure.Services;
 using Bank_app.Windows;
+using Bank_app.DAL.Entityes.Base;
 
 namespace Bank_app.Infrastructure.ViewModels
 {
     internal class RegistationViewModel : BaseViewModel
     {
-
+       
+        Person per = new Person();
         private readonly Registrated registrated;
         private string id;
         private string name;
@@ -31,25 +33,21 @@ namespace Bank_app.Infrastructure.ViewModels
       
 
         private void OnRegCommandExecute(object p)
-        {
+        {          
             registrated.Registr(new User { id = Id, INN = inn, name = name, passport = passport, surname = surname, password = password });
-            Application.Current.Shutdown();
+            
         }
 
         private bool CanExecuteRegCommandExecute(object p) => true;
 
         public ICommand RegCommand { get; }
 
-        public RegistationViewModel(Registrated db)
+        public RegistationViewModel(Registrated db, AutorisationViewModel a)
         {
+            per = a.per;
             this.registrated = db;
             RegCommand = new LambdaCommand(OnRegCommandExecute, CanExecuteRegCommandExecute);
-            //registrated.Registr(new User {id = "fraerSTATA" ,INN =  123123123,name = "Саня",passport =031632421,surname="Смирнов",password="12345678"});
-            // employers = employer;         
-            // CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecute, CanExecuteCloseApplicationCommandExecute);
-            //    LoginCommand = new LambdaCommand(OnLoginCommandExecute, CanExecuteLoginCommandExecute);
-            //     this.autorisated = autorisated;
-            //    Password = "sadasdas";
+        
 
         }
 

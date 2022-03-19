@@ -7,8 +7,11 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Bank_app.MainWindow"
         mc:Ignorable="d"
         Height="400" Width="600"
+    MaxHeight="400" MaxWidth="600"
+    MinHeight="400" MinWidth="600"
          DataContext="{Binding Autorisation,Source={StaticResource Locator}}"
         Title="{Binding Title}"
+    Background="WhiteSmoke"
     >
     <Grid>
         <Grid.ColumnDefinitions>
@@ -34,7 +37,7 @@
         </StackPanel>
 
         <Button Command="{Binding LoginCommand}"  Grid.Column="1" Grid.Row="3" FontSize="20"  HorizontalAlignment="Left" Margin="303,19,0,0"  VerticalAlignment="Top" Height="50" Width="160"  Cursor="Hand" Content="Войти"/>
-        <Button Grid.Column="1" Grid.Row="3"  FontSize="20" HorizontalAlignment="Left" Margin="115,19,0,0"  VerticalAlignment="Top" Height="50" Width="160"  Cursor="Hand" Content="Регистрация"/>
+        <Button  Command="{Binding OpenReigstryCommand}" Grid.Column="1" Grid.Row="3"  FontSize="20" HorizontalAlignment="Left" Margin="115,19,0,0"  VerticalAlignment="Top" Height="50" Width="160"  Cursor="Hand" Content="Регистрация"/>
         <materialDesign:RatingBar Margin="10 " HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="121" Grid.Row="4" Grid.Column="1"/>
 
     </Grid>

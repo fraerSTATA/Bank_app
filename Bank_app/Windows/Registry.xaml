@@ -22,7 +22,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="40" FontFamily="Bahnschrift Light Condensed" FontStretch="Medium" HorizontalAlignment="Center" Margin="10 20 20 0">Bruiser Bank</TextBlock>
+        <TextBlock Text="Bruiser Bank" Grid.Row="0" Grid.Column="0" FontSize="40" FontFamily="Bahnschrift Light Condensed" FontStretch="Medium" HorizontalAlignment="Center" Margin="10 20 20 0"/>
         <StackPanel Grid.Row="1" Grid.Column="0" Background="DeepPink">
         <TextBlock Grid.Row="1" Grid.Column="0" FontSize="40" FontFamily="Bahnschrift Light Condensed" FontStretch="Medium" HorizontalAlignment="Center" Margin="0 20 0 0">Регистрация</TextBlock>
         </StackPanel>
