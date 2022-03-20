@@ -63,7 +63,7 @@
                 <Menu Grid.ColumnSpan="2"  Grid.Row="1">
                 <MenuItem  Width="300" Header="Кредиты >" FontSize="26" Margin="20">
                     <MenuItem  Margin="150,5,10,10" Header="Мои кредиты"/>
-                    <MenuItem  Margin="150, 8 ,10 10" Header="Оформить кредит"/>
+                    <MenuItem Command="{Binding MakeCredit}"  Margin="150, 8 ,10 10" Header="Оформить кредит"/>
 
                 </MenuItem>
             </Menu>

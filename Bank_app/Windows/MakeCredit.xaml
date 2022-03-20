@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Bank_app.Windows"
          xmlns:fa5="http://schemas.fontawesome.com/icons/"
         mc:Ignorable="d"
-        Title="MakeCredit" Height="650" Width="701">
+        
+        Title="MakeCredit" Height="626" Width="711"
+        DataContext="{Binding MakeCredit,Source={StaticResource Locator}}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,15 +22,31 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <fa5:SvgAwesome Foreground="Purple" Margin="20 0 10 10" Icon="Solid_Backspace" Width="40" Height="40"/>
             <TextBlock FontFamily="Bahnschrift Condensed" Text="Оформите кредит на выгодных условиях" FontSize="32" Margin="60 10 0 15" Width="470" Cursor="IBeam"/>
-           
+
             <fa5:SvgAwesome Foreground="Purple" Margin="10 5 10 10" Icon="Solid_Bars" Width="30" Height="40"/>
             <fa5:SvgAwesome Foreground="Purple" Margin="10 5 10 10" Icon="Regular_QuestionCircle" Width="30" Height="40"/>
         </StackPanel>
         <TextBlock FontFamily="Bahnschrift Condensed" Margin="20 " FontSize="30" Grid.Row="1">Выберите кредитный план</TextBlock>
         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible"  Grid.Row="2">
-        <Grid Width="AUTO" Height="150" Margin="20 0 0 0" Background="AliceBlue" Grid.Row="2">
-            
-        </Grid>
+            <Grid Width="AUTO" Height="150" Margin="20 0 0 0" Background="AliceBlue" Grid.Row="2">
+
+            </Grid>
         </ScrollViewer>
+        <StackPanel Grid.Row="3" Orientation="Vertical" Height="Auto" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontFamily="Bahnschrift Condensed" Margin="20 10 10 10" FontSize="30">Трудовая книжка</TextBlock>
+                <TextBox Text="{Binding WorkBook}" Width="350" FontFamily="Bahnschrift Condensed" Margin="62 5 10 10 " FontSize="30"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontFamily="Bahnschrift Condensed" Margin="20 10 10 10" FontSize="30">Текущая зарплата (т.р)</TextBlock>
+                <TextBox Text="{Binding Salary}" Width="350" FontFamily="Bahnschrift Condensed" Margin="10 5 10 10 " FontSize="30"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontFamily="Bahnschrift Condensed" Margin="20 10 10 10 " FontSize="30">Сумма кредита</TextBlock>
+                <TextBox  Text="{Binding Credit_sum}" Width="350" FontFamily="Bahnschrift Condensed" Margin="88 5 10 10 " FontSize="30" Cursor="IBeam"></TextBox>
+            </StackPanel>
+            <CheckBox IsChecked="True" Margin="20 0 0 0">Согласие на обработку персональных данных</CheckBox>
+            <Button Width="300" Height="45" FontFamily="Bahnschrift Condensed" FontSize="26" Margin="20 30 20 20" Cursor="Hand">Отправить заявку</Button>
+        </StackPanel>
     </Grid>
 </Window>
