@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Bank_app.Windows"
          xmlns:fa5="http://schemas.fontawesome.com/icons/"
         mc:Ignorable="d"
-        
+         xmlns:vm="clr-namespace:Bank_app.Windows.DataTemplates"
+         xmlns:vme="clr-namespace:Bank_app.Infrastructure.ViewModels"
         Title="MakeCredit" Height="626" Width="711"
         DataContext="{Binding MakeCredit,Source={StaticResource Locator}}">
     <Grid>
@@ -27,9 +28,28 @@
             <fa5:SvgAwesome Foreground="Purple" Margin="10 5 10 10" Icon="Regular_QuestionCircle" Width="30" Height="40"/>
         </StackPanel>
         <TextBlock FontFamily="Bahnschrift Condensed" Margin="20 " FontSize="30" Grid.Row="1">Выберите кредитный план</TextBlock>
-        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible"  Grid.Row="2">
-            <Grid Width="AUTO" Height="150" Margin="20 0 0 0" Background="AliceBlue" Grid.Row="2">
-
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"  Grid.Row="2">
+            <Grid  x:Name="CreditGrid"  Height="150" Margin="20 0 0 0" Background="AliceBlue" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                <ItemsControl Grid.Row="0" Background="Bisque" ItemsSource="{Binding Path=Credits}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type vme:CreditViewViewModel}">
+                            <vm:CreditView></vm:CreditView>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style>
+                            <Setter Property="Control.Width" Value="200"/>
+                            <Setter Property="Control.Height" Value="100"/>
+                            <Setter Property="Control.Margin" Value="5"/>
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                </ItemsControl>
             </Grid>
         </ScrollViewer>
         <StackPanel Grid.Row="3" Orientation="Vertical" Height="Auto" VerticalAlignment="Center">
