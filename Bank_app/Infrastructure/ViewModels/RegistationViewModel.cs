@@ -15,7 +15,7 @@ namespace Bank_app.Infrastructure.ViewModels
     internal class RegistationViewModel : BaseViewModel
     {
        
-        Person per = new Person();
+       
         private readonly Registrated registrated;
         private string id;
         private string name;
@@ -43,8 +43,7 @@ namespace Bank_app.Infrastructure.ViewModels
         public ICommand RegCommand { get; }
 
         public RegistationViewModel(Registrated db, AutorisationViewModel a)
-        {
-            per = a.per;
+        {         
             this.registrated = db;
             RegCommand = new LambdaCommand(OnRegCommandExecute, CanExecuteRegCommandExecute);
         

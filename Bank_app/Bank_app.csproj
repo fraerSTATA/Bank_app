@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome5" Version="2.1.6" />
     <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.3" />
@@ -24,6 +25,7 @@
     <Folder Include="Infrastructure\Service\" />
     <Folder Include="Infrastructure\UserControls\" />
     <Folder Include="Models\" />
+    <Folder Include="Windows\DataTemplates\" />
   </ItemGroup>
 
   <ItemGroup>

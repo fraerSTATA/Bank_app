@@ -85,15 +85,16 @@ namespace Bank_app
             var emp = autorisated.Autorise(userLogin, password);
             if (emp.Value != null)
             {
-               if(emp.Key == "сотрудник")
-                {             
-                    MessageBox.Show("сотрудник");                   
+                per = emp.Value;
+                if (emp.Key == "сотрудник")
+                {
+                   
                 }
                 if (emp.Key == "пользователь")
-                {                 
-                    MessageBox.Show("Синякуем");
+                {
+                    UserInterface a = new UserInterface();
+                    a.Show();
                 }
-                per = emp.Value;
             }             
             else
             {

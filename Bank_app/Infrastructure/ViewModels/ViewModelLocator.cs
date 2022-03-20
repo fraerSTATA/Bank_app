@@ -12,5 +12,9 @@ namespace Bank_app.Infrastructure.ViewModels
         public AutorisationViewModel Autorisation => App.Services.GetRequiredService<AutorisationViewModel>();
 
         public RegistationViewModel Registration => App.Services.GetRequiredService<RegistationViewModel>();
+
+        public UserInterfaceViewModel userInterface => App.Services.GetRequiredService<UserInterfaceViewModel>();
+
+        public MakeCreditViewModel MakeCredit => App.Services.GetRequiredService<MakeCreditViewModel>();
     }
 }
