@@ -8,7 +8,8 @@
         Title="UserCreditRequest" Height="450" Width="645"
          xmlns:fa5="http://schemas.fontawesome.com/icons/"
          xmlns:vm="clr-namespace:Bank_app.Windows.DataTemplates"
-         xmlns:vme="clr-namespace:Bank_app.Infrastructure.ViewModels">
+         xmlns:vme="clr-namespace:Bank_app.Infrastructure.ViewModels"
+        DataContext="{Binding UserCreditRequests,Source={StaticResource Locator}}">
     <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="AUTO"></RowDefinition>

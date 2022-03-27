@@ -30,7 +30,7 @@
         </StackPanel>
         <Menu   Grid.Row="2">
             <MenuItem  Width="560" Header="Пользовательские заявки >" FontSize="20" Margin="10">
-                <MenuItem Command="{Binding}"  Header="Просмотр заявок"/>
+                <MenuItem Command="{Binding CheckRequests}"  Header="Просмотр заявок"/>
             </MenuItem>
         </Menu>
     </Grid>

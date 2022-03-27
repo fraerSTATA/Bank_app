@@ -6,4 +6,8 @@
     <DataTemplate DataType="{x:Type vm:CreditViewViewModel}">
         <view:CreditView DataContext="{Binding}"></view:CreditView>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:CreditRequestViewModel}">
+        <view:UserRequestView DataContext="{Binding}"></view:UserRequestView>
+    </DataTemplate>
 </ResourceDictionary>
