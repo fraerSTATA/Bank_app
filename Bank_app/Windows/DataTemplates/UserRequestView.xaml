@@ -4,42 +4,45 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bank_app.Windows.DataTemplates"
-             mc:Ignorable="d" Height="220" Width="603">
+             mc:Ignorable="d" Height="234" Width="622"
+             Margin="10">
     <Grid Background="AliceBlue">
-        <StackPanel>
-            <TextBlock Margin="10" FontSize="24" Text="{Binding Title}"></TextBlock>
-            <StackPanel Height="120">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="10" Height="20"><Run Text="Клиент:"/></TextBlock>
-                    <TextBlock Margin="10" Height="20" Text="{Binding Name}"/>
-                    <TextBlock Margin="10" Height="20" Text="{Binding Surname}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="10" Height="20"><Run Text="Кредит:"/></TextBlock>
-                    <TextBlock Margin="10" Height="20"><Run Text="Срок:"/></TextBlock>
-                    <TextBlock Margin="10" Height="20" Text="{Binding Time}"/>
-                    <TextBlock Margin="10" Height="20"><Run Text="%:"/></TextBlock>
-                    <TextBlock Margin="10" Height="20" Text="{Binding Percent}"/>
-                    <TextBlock Margin="10" Height="20"><Run Text="Название:"/></TextBlock>
-                    <TextBlock Margin="10" Height="20" Text="{Binding Descript}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="10" Height="20"><Run Text="Данные:"/></TextBlock>
-                    <TextBlock Margin="10" Height="20"><Run Text="Трудовая книжка:"/></TextBlock>
-                    <TextBlock Margin="10" Height="20" Text="{Binding WorkBook}"/>
-                    <TextBlock Margin="10" Height="20"><Run Text="Зарплата:"/></TextBlock>
-                    <TextBlock Margin="10" Height="20" Text="{Binding Salary}"/>
-                    <TextBlock Margin="10" Height="20"><Run Text="Сумма кредита:"/></TextBlock>
-                    <TextBlock Margin="10" Height="20" Text="{Binding Credit_Sum}"/>
-                </StackPanel>
-              
+        <Border Margin="5" BorderBrush="Purple" BorderThickness="2">
+            <StackPanel>
+                <TextBlock Foreground="Black" Margin="10" FontSize="24" Text="{Binding Title}"></TextBlock>
+                <StackPanel Height="120">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Клиент:"/></TextBlock>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20" Text="{Binding Name}"/>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20" Text="{Binding Surname}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Кредит:"/></TextBlock>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Срок:"/></TextBlock>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20" Text="{Binding Time}"/>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="%:"/></TextBlock>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20" Text="{Binding Percent}"/>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Название:"/></TextBlock>
+                        <TextBlock Foreground="Black" Margin="10" Height="20" Text="{Binding Descript}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Данные:"/></TextBlock>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Трудовая книжка:"/></TextBlock>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20" Text="{Binding WorkBook}"/>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Зарплата:"/></TextBlock>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20" Text="{Binding Salary}"/>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Сумма кредита:"/></TextBlock>
+                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20" Text="{Binding Credit_Sum}"/>
+                    </StackPanel>
 
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Command="{Binding AcceptRequests}"  Margin="10">Одобрить заявку</Button>
+                    <Button Command="{Binding DeclineRequests}" Margin="10">Отклонить заявку</Button>
+                    <Button Command="{Binding}" Margin="10">Кредитная история пользователя</Button>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button  Margin="10">Одобрить заявку</Button>
-                <Button Margin="10">Отклонить заявку</Button>
-                <Button Margin="10">Кредитная история пользователя</Button>
-            </StackPanel>
-        </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

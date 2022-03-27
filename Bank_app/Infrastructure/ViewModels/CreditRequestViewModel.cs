@@ -1,9 +1,12 @@
 ﻿using Bank_app.DAL.Entityes;
+using Bank_app.Infrastructure.Commands;
+using Bank_app.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Bank_app.Infrastructure.ViewModels
 {
@@ -31,9 +34,49 @@ namespace Bank_app.Infrastructure.ViewModels
         public int WorkBook { get => workBook; set => Set(ref workBook, value); }
         public int Salary { get => salary; set => Set(ref salary, value); }
         public int Credit_Sum { get => credit_Sum; set=> Set(ref credit_Sum, value); }
+        private bool status;
+        private readonly CheckCredit check;
+        private readonly Employee employee;
 
-        public CreditRequestViewModel(CreditRequest creditRequesst)
+
+
+        #region Команды
+        /// <summary>
+        /// Принять пользовательскую заявку
+        /// </summary>
+        private ICommand acceptRequests;
+
+        public ICommand AcceptRequests => acceptRequests ??= new LambdaCommand(OnAcceptRequestsCommandExecute, CanExecuteAcceptRequestsCommandExecute);
+
+        private void OnAcceptRequestsCommandExecute(object p)
         {
+            status = true;
+            check.CheckCreditRequest(status, creditRequest, employee);
+        }
+        private bool CanExecuteAcceptRequestsCommandExecute(object p) => true;
+
+
+        /// <summary>
+        /// Отклонить пользовательскую заявку
+        /// </summary>
+        private ICommand declineRequests;
+
+        public ICommand DeclineRequests => declineRequests ??= new LambdaCommand(OnDeclineRequestsCommandExecute, CanExecuteDeclineRequestsCommandExecute);
+
+        private void OnDeclineRequestsCommandExecute(object p)
+        {
+            status = false;
+            check.CheckCreditRequest(status, creditRequest, employee);
+        }
+        private bool CanExecuteDeclineRequestsCommandExecute(object p) => true;
+        #endregion
+
+
+        public CreditRequestViewModel(CreditRequest creditRequesst,Employee ex,CheckCredit credit)
+        {
+            employee = ex;
+            check = credit;
+            
             creditRequest = creditRequesst;
             title = "Заявка №" + creditRequesst.id;
 

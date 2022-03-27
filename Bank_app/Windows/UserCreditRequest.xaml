@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bank_app.Windows"
         mc:Ignorable="d"
-        Title="UserCreditRequest" Height="450" Width="645"
+        Title="UserCreditRequest" Height="460" Width="758"
          xmlns:fa5="http://schemas.fontawesome.com/icons/"
          xmlns:vm="clr-namespace:Bank_app.Windows.DataTemplates"
          xmlns:vme="clr-namespace:Bank_app.Infrastructure.ViewModels"
         DataContext="{Binding UserCreditRequests,Source={StaticResource Locator}}">
-    <Grid Background="AliceBlue">
+    <ScrollViewer>
+    <Grid Height="AUTO" Background="AliceBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="AUTO"></RowDefinition>
-            <RowDefinition Height="AUTO"></RowDefinition>
+            <RowDefinition  Height="AUTO"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -22,13 +23,20 @@
             <fa5:SvgAwesome Foreground="Purple" Margin="20 0 10 10" Icon="Solid_Backspace" Width="40" Height="40"/>
             <TextBlock FontFamily="Bahnschrift Condensed" Text="Пользовательские заявки" FontSize="32" Margin="90 10 0 15" Width="470" Cursor="IBeam"/>
         </StackPanel>
-        <ListBox SelectedItem="{Binding CurrentCreditView}" Background="AliceBlue" Height="AUTO" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                      ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Row="2"  ItemsSource="{Binding Path=Credits}" Margin="20">
+        <ListBox         
+          Background="AliceBlue" Height="AUTO" 
+                     Grid.Row="2"   ItemsSource="{Binding Path=Credits}" Margin="20">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
-                <DataTemplate DataType="{x:Type vme:CreditViewViewModel}">
-                    <vm:CreditView DataContext="{Binding}"></vm:CreditView>
+                <DataTemplate DataType="{x:Type vme:CreditRequestViewModel}">
+                    <vm:UserRequestView DataContext="{Binding}"></vm:UserRequestView>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
+    </ScrollViewer>
 </Window>
