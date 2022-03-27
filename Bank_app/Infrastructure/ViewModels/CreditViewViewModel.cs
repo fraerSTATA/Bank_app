@@ -19,7 +19,7 @@ namespace Bank_app.Infrastructure.ViewModels
             creditView = a;
             percent = a.percent_credit;
             time = a.credit_time;
-            name = a.CreditType.type_name;
+            name = a.descript;
         }
 
         public int Percent { get => percent; set => Set(ref percent, value); }

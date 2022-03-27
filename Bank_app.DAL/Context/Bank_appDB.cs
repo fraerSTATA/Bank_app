@@ -12,6 +12,8 @@ namespace Bank_app.DAL.Context
     {
         public DbSet<CheckedCreditRequest> CheckedCreditRequests { get; set; }
         public DbSet<CreditType> CreditTypes { get; set; }
+
+        public DbSet<CreditRequest> CreditRequests { get; set; }
         public DbSet<CreditView> CreditViews { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Post> Posts { get; set; }

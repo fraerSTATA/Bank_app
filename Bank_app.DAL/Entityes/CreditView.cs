@@ -9,7 +9,7 @@ namespace Bank_app.DAL.Entityes
 {
    public  class CreditView : Entity
     {
-
+        public string descript { get; set; }
         public int percent_credit { get; set; }
         public int credit_time { get; set; }
         public virtual CreditType CreditType { get; set; }
