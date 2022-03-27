@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using System.Windows;
 
 namespace Bank_app
 {
@@ -14,9 +15,16 @@ namespace Bank_app
         [STAThread]
         static void Main(string[] args)
         {
-            var app = new App();
-            app.InitializeComponent();
-            app.Run();
+            try
+            {
+                var app = new App();
+                app.InitializeComponent();
+                app.Run();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) => Host

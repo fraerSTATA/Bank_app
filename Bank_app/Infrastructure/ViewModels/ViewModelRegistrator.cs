@@ -15,6 +15,7 @@ namespace Bank_app.Infrastructure.ViewModels
             .AddScoped<RegistationViewModel>()
             .AddScoped<UserInterfaceViewModel>()
             .AddScoped<MakeCreditViewModel>()
+             .AddScoped<ReferentInterfaceViewModel>()
            ;
     }
 }

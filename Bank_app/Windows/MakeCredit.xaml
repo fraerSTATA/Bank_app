@@ -17,8 +17,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="AUTO"></RowDefinition>
             <RowDefinition Height="AUTO"></RowDefinition>
+            <RowDefinition Height="AUTO"/>
             <RowDefinition Height="AUTO"></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <fa5:SvgAwesome Foreground="Purple" Margin="20 0 10 10" Icon="Solid_Backspace" Width="40" Height="40"/>
@@ -28,30 +28,23 @@
             <fa5:SvgAwesome Foreground="Purple" Margin="10 5 10 10" Icon="Regular_QuestionCircle" Width="30" Height="40"/>
         </StackPanel>
         <TextBlock FontFamily="Bahnschrift Condensed" Margin="20 " FontSize="30" Grid.Row="1">Выберите кредитный план</TextBlock>
-        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"  Grid.Row="2">
-            <Grid  x:Name="CreditGrid"  Height="150" Margin="20 0 0 0" Background="AliceBlue" Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-                <ItemsControl Grid.Row="0" Background="Bisque" ItemsSource="{Binding Path=Credits}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type vme:CreditViewViewModel}">
-                            <vm:CreditView></vm:CreditView>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemContainerStyle>
-                        <Style>
-                            <Setter Property="Control.Width" Value="200"/>
-                            <Setter Property="Control.Height" Value="100"/>
-                            <Setter Property="Control.Margin" Value="5"/>
-                        </Style>
-                    </ItemsControl.ItemContainerStyle>
-                </ItemsControl>
-            </Grid>
-        </ScrollViewer>
+
+
+        <ListBox SelectedItem="{Binding CurrentCreditView}" Background="AliceBlue" Height="150" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Row="2"  ItemsSource="{Binding Path=Credits}" Margin="20,10,0,10" >
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type vme:CreditViewViewModel}">
+                    <vm:CreditView DataContext="{Binding}"></vm:CreditView>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
         <StackPanel Grid.Row="3" Orientation="Vertical" Height="Auto" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontFamily="Bahnschrift Condensed" Margin="20 10 10 10" FontSize="30">Трудовая книжка</TextBlock>
@@ -66,7 +59,7 @@
                 <TextBox  Text="{Binding Credit_sum}" Width="350" FontFamily="Bahnschrift Condensed" Margin="88 5 10 10 " FontSize="30" Cursor="IBeam"></TextBox>
             </StackPanel>
             <CheckBox IsChecked="True" Margin="20 0 0 0">Согласие на обработку персональных данных</CheckBox>
-            <Button Width="300" Height="45" FontFamily="Bahnschrift Condensed" FontSize="26" Margin="20 30 20 20" Cursor="Hand">Отправить заявку</Button>
+            <Button Command="{Binding CreditRequestCommand}" Width="300" Height="45" FontFamily="Bahnschrift Condensed" FontSize="26" Margin="20 30 20 20" Cursor="Hand">Отправить заявку</Button>
         </StackPanel>
     </Grid>
 </Window>

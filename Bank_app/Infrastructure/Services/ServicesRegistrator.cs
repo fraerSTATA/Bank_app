@@ -17,6 +17,7 @@ namespace Bank_app.Infrastructure.Services
             .AddTransient<Autorisated>()
             .AddTransient<Registrated>()
             .AddTransient<MakingCredit>()
+            .AddTransient<CheckCredit>()
         ;
     }
 }

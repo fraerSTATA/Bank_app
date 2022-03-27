@@ -16,5 +16,7 @@ namespace Bank_app.Infrastructure.ViewModels
         public UserInterfaceViewModel userInterface => App.Services.GetRequiredService<UserInterfaceViewModel>();
 
         public MakeCreditViewModel MakeCredit => App.Services.GetRequiredService<MakeCreditViewModel>();
+
+        public ReferentInterfaceViewModel ReferentInterface => App.Services.GetRequiredService<ReferentInterfaceViewModel>();
     }
 }

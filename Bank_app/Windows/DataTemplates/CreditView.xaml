@@ -5,11 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bank_app.Windows.DataTemplates"
              mc:Ignorable="d" 
-             d:DesignHeight="120" d:DesignWidth="200">
-    <Grid Background="Blue">
-        <Image Width="50" Height="50" Margin="0,10,150,60" Source="/Image2.png" Stretch="Fill"/>
-        <TextBlock Text="{Binding Percent}" Width="120" Height="20" Margin="18,78,62,22"></TextBlock>
-        <TextBlock Text="{Binding Time}" Width="120" Height="20" Margin="55,10,25,90" ></TextBlock>
-        <TextBlock Text="{Binding Name}" Width="120" Height="20" Margin="40,40,40,60"></TextBlock>
+             d:DesignHeight="150" d:DesignWidth="200">
+    <Border Margin="7" BorderBrush="Purple" BorderThickness="{Binding Brush}">
+    <Grid  Background="MediumPurple">
+        <Image Margin="4,7,118,65" Source="/Image2.png" Stretch="Fill"/>
+        <TextBox Height="20" Margin="4,70,101,40" Cursor="IBeam"/>
+        <TextBlock FontFamily="Bahnschrift Condensed" FontSize="20" Text="{Binding Percent}" Margin="84,9,40,96"/>
+        <TextBlock FontFamily="Bahnschrift Condensed" FontSize="20"  Text="{Binding Time}" Width="40" Margin="84,52,56,51" RenderTransformOrigin="0.637,0.515" />
+        <TextBlock FontFamily="Bahnschrift Condensed" FontSize="20"  Text="{Binding Name}" Margin="10,91,23,12"/>
     </Grid>
+    </Border>
 </UserControl>

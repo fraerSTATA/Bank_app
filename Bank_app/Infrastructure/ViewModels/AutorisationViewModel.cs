@@ -88,12 +88,21 @@ namespace Bank_app
                 per = emp.Value;
                 if (emp.Key == "сотрудник")
                 {
-                   
+                    ReferentInterface b = new ReferentInterface();
+                    b.Show();
+                    foreach (Window item in Application.Current.Windows)
+                    {
+                        if (item.DataContext == this) item.Close();
+                    }
                 }
                 if (emp.Key == "пользователь")
                 {
                     UserInterface a = new UserInterface();
                     a.Show();
+                    foreach (Window item in Application.Current.Windows)
+                    {
+                        if (item.DataContext == this) item.Close();
+                    }
                 }
             }             
             else

@@ -1,0 +1,33 @@
+﻿<Window x:Class="Bank_app.Windows.UserCreditRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bank_app.Windows"
+        mc:Ignorable="d"
+        Title="UserCreditRequest" Height="450" Width="645"
+         xmlns:fa5="http://schemas.fontawesome.com/icons/"
+         xmlns:vm="clr-namespace:Bank_app.Windows.DataTemplates"
+         xmlns:vme="clr-namespace:Bank_app.Infrastructure.ViewModels">
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO"></RowDefinition>
+            <RowDefinition Height="AUTO"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <fa5:SvgAwesome Foreground="Purple" Margin="20 0 10 10" Icon="Solid_Backspace" Width="40" Height="40"/>
+            <TextBlock FontFamily="Bahnschrift Condensed" Text="Пользовательские заявки" FontSize="32" Margin="90 10 0 15" Width="470" Cursor="IBeam"/>
+        </StackPanel>
+        <ListBox SelectedItem="{Binding CurrentCreditView}" Background="AliceBlue" Height="AUTO" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Row="2"  ItemsSource="{Binding Path=Credits}" Margin="20">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type vme:CreditViewViewModel}">
+                    <vm:CreditView DataContext="{Binding}"></vm:CreditView>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

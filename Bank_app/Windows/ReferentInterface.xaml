@@ -1,0 +1,37 @@
+﻿<Window x:Class="Bank_app.Windows.ReferentInterface"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bank_app.Windows"
+        mc:Ignorable="d"
+          xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        Title="ReferentInterface" Height="450" Width="579"
+        DataContext="{Binding ReferentInterface,Source={StaticResource Locator}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Width="400" Text="{Binding Title}"  Margin="20 15 0 0" FontSize="32" FontFamily="Bahnschrift Condensed"></TextBlock>
+            <fa5:SvgAwesome HorizontalAlignment="Right" Foreground="Purple" Margin="50 10 10 10" Icon="Solid_Bars" Width="30" Height="40"/>
+            <fa5:SvgAwesome HorizontalAlignment="Right" Foreground="Purple" Margin="20 10 10 10" Icon="Regular_User" Width="30" Height="40"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock HorizontalAlignment="Left" Width="400"  Margin="20 15 0 0" FontSize="32" FontFamily="Bahnschrift Condensed">Текущие задачи ></TextBlock>
+            <ListBox Height="140" Width="AUTO" Margin="20">
+                
+            </ListBox>
+        </StackPanel>
+        <Menu   Grid.Row="2">
+            <MenuItem  Width="560" Header="Пользовательские заявки >" FontSize="20" Margin="10">
+                <MenuItem Command="{Binding}"  Header="Просмотр заявок"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
