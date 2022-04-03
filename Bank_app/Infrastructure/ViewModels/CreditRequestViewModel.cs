@@ -3,6 +3,7 @@ using Bank_app.Infrastructure.Commands;
 using Bank_app.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,7 @@ namespace Bank_app.Infrastructure.ViewModels
         public int Credit_Sum { get => credit_Sum; set=> Set(ref credit_Sum, value); }
         private bool status;
         private readonly CheckCredit check;
+        private readonly int index;
         private readonly Employee employee;
 
 
@@ -52,6 +54,8 @@ namespace Bank_app.Infrastructure.ViewModels
         {
             status = true;
             check.CheckCreditRequest(status, creditRequest, employee);
+            Credits.RemoveAt(index);
+
         }
         private bool CanExecuteAcceptRequestsCommandExecute(object p) => true;
 
@@ -63,20 +67,25 @@ namespace Bank_app.Infrastructure.ViewModels
 
         public ICommand DeclineRequests => declineRequests ??= new LambdaCommand(OnDeclineRequestsCommandExecute, CanExecuteDeclineRequestsCommandExecute);
 
+        public Users_Credit_Requests_ViewModel Cr { get; }
+        public ObservableCollection<CreditRequestViewModel> Credits { get; }
+
         private void OnDeclineRequestsCommandExecute(object p)
         {
             status = false;
             check.CheckCreditRequest(status, creditRequest, employee);
+            Credits.RemoveAt(index);
         }
         private bool CanExecuteDeclineRequestsCommandExecute(object p) => true;
         #endregion
 
 
-        public CreditRequestViewModel(CreditRequest creditRequesst,Employee ex,CheckCredit credit)
+        public CreditRequestViewModel(CreditRequest creditRequesst,Employee ex,CheckCredit credit, ObservableCollection<CreditRequestViewModel> credits,int index)
         {
             employee = ex;
             check = credit;
-            
+            Credits = credits;
+            this.index = index;
             creditRequest = creditRequesst;
             title = "Заявка №" + creditRequesst.id;
 

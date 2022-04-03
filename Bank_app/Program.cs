@@ -20,6 +20,7 @@ namespace Bank_app
                 var app = new App();
                 app.InitializeComponent();
                 app.Run();
+             
             }
             catch (Exception ex)
             {

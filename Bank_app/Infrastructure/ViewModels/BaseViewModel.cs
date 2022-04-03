@@ -9,7 +9,7 @@ using Microsoft.Win32;
 
 namespace Bank_app
 {
-    internal abstract class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

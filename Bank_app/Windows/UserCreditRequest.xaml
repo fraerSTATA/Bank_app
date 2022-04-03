@@ -23,7 +23,7 @@
             <fa5:SvgAwesome Foreground="Purple" Margin="20 0 10 10" Icon="Solid_Backspace" Width="40" Height="40"/>
             <TextBlock FontFamily="Bahnschrift Condensed" Text="Пользовательские заявки" FontSize="32" Margin="90 10 0 15" Width="470" Cursor="IBeam"/>
         </StackPanel>
-        <ListBox         
+        <ListBox   SelectedIndex="{Binding Index}"       
           Background="AliceBlue" Height="AUTO" 
                      Grid.Row="2"   ItemsSource="{Binding Path=Credits}" Margin="20">
             <ListBox.ItemsPanel>

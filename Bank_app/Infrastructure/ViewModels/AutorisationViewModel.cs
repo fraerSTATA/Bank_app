@@ -9,10 +9,11 @@ using Bank_app.DAL.Context;
 using Bank_app.Infrastructure.Services;
 using Bank_app.Windows;
 using Bank_app.DAL.Entityes.Base;
+using Xunit;
 
 namespace Bank_app
 {
-    internal class AutorisationViewModel : BaseViewModel
+    public class AutorisationViewModel : BaseViewModel
     {
         private string? userLogin;
         private string? password;
@@ -21,6 +22,7 @@ namespace Bank_app
 
         private readonly IRepositoryUser<Employee> users;
         private readonly Autorisated autorisated;
+       
 
         #region Свойства
         public Person per;
@@ -121,7 +123,11 @@ namespace Bank_app
         public AutorisationViewModel(Autorisated autorisated) 
         {                                
             this.autorisated = autorisated;
+
+          
+    
            
+
         }
     }
 }

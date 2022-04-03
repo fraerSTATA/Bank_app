@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace Bank_app.Infrastructure.Services
 {
@@ -16,7 +17,7 @@ namespace Bank_app.Infrastructure.Services
         {
             this.users = users;        
         }
-
+      
         public void Registr(User? user)
         {
             if (user != null)

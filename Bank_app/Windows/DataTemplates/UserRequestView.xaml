@@ -26,12 +26,11 @@
                         <TextBlock Foreground="Black" Margin="10" Height="20" Text="{Binding Descript}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Данные:"/></TextBlock>
-                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Трудовая книжка:"/></TextBlock>
-                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20" Text="{Binding WorkBook}"/>
+                       <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Данные:"/></TextBlock>
+                        
                         <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Зарплата:"/></TextBlock>
                         <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20" Text="{Binding Salary}"/>
-                        <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20"><Run Text="Сумма кредита:"/></TextBlock>
+                        <TextBlock  FontSize="14" Foreground="Black" Height="20"><Run Text="Сумма кредита:"/></TextBlock>
                         <TextBlock  FontSize="14" Foreground="Black" Margin="10" Height="20" Text="{Binding Credit_Sum}"/>
                     </StackPanel>
 
